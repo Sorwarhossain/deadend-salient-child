@@ -118,3 +118,15 @@ p.woocommerce-mini-cart__empty-message {
     font-size: 70px !important;
     font-weight: 600 !important;
 }
+h2.gsection_title {
+    text-transform: uppercase;
+    font-size: 30px !important;
+    color: #505050 !important;
+}
+.gsection_description {
+    margin-bottom: 0 !important;
+    font-size: 16px !important;
+}
+.form_location_section {
+    padding-top: 70px !important;
+}
