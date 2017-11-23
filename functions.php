@@ -12,4 +12,28 @@ function salient_child_enqueue_styles() {
    	wp_enqueue_script('scripts', get_stylesheet_directory_uri() . '/js/scripts.js', array(), false, true);
 }
 
-?>
+
+// add_filter( 'add_to_cart_text', 'woo_custom_cart_button_text',  1, 20);    // < 2.1
+// function woo_custom_cart_button_text() {
+//         return __( 'Find Store', 'woocommerce' );;
+// }
+
+
+add_filter( 'woocommerce_product_single_add_to_cart_text', 'woo_custom_cart_button_text' );    // 2.1 +
+ 
+function woo_custom_cart_button_text() {
+ 
+        return __( 'Find Store Location', 'woocommerce' );
+ 
+}
+
+
+
+/**
+ * Set a custom add to cart URL to redirect to
+ * @return string
+ */
+function custom_add_to_cart_redirect() { 
+    return add_query_arg( 'store', 'store_id', 'http://localhost/deadendgamecalls/locate-a-dealer' );; 
+}
+add_filter( 'woocommerce_add_to_cart_redirect', 'custom_add_to_cart_redirect' );

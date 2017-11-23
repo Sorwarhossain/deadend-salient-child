@@ -130,3 +130,6 @@ h2.gsection_title {
 .form_location_section {
     padding-top: 70px !important;
 }
+.quantity.buttons_added {
+    display: none;
+}
