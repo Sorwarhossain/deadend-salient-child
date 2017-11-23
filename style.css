@@ -114,3 +114,7 @@ p.woocommerce-mini-cart__empty-message {
 #copyright .col {
     width: 100%;
 }
+.home_banner h1 {
+    font-size: 70px !important;
+    font-weight: 500 !important;
+}
