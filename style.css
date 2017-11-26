@@ -152,3 +152,6 @@ h1.product_title.entry-title {
 .add_to_cart_button.ajax_add_to_cart.add_to_cart_button {
     display: none;
 }
+.woocommerce-message {
+    display: none;
+}
