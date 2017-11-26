@@ -149,3 +149,6 @@ h1.product_title.entry-title {
 .quantity.buttons_added .minimal-form-input {
     padding-top: 0 !important;
 }
+.add_to_cart_button.ajax_add_to_cart.add_to_cart_button {
+    display: none;
+}
