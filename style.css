@@ -133,3 +133,19 @@ h2.gsection_title {
 .quantity.buttons_added {
     display: none;
 }
+h1.product_title.entry-title {
+    font-size: 40px;
+    line-height: 47px;
+}
+.woocommerce div.product div.images .flex-control-thumbs{
+    margin-top: 40px;
+    text-align: center;
+}
+.woocommerce div.product div.images .flex-control-thumbs li{
+    display: inline-block;
+    margin: 0 auto;
+    float: none;
+}
+.quantity.buttons_added .minimal-form-input {
+    padding-top: 0 !important;
+}

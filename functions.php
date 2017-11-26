@@ -34,6 +34,6 @@ function woo_custom_cart_button_text() {
  * @return string
  */
 function custom_add_to_cart_redirect() { 
-    return add_query_arg( 'store', 'store_id', 'http://localhost/deadendgamecalls/locate-a-dealer' );; 
+    return get_permalink( '6412' ); 
 }
 add_filter( 'woocommerce_add_to_cart_redirect', 'custom_add_to_cart_redirect' );
