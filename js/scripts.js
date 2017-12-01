@@ -1,8 +1,8 @@
 (function ($) {
 	"use strict";
 
-	$(document).ready(function(){
-	    
+	jQuery(document).ready(function(){
+	    jQuery("#slp_results_3").addClass('featured_wrapper');
 	});
 
 
