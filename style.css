@@ -219,3 +219,6 @@ h1.product_title.entry-title {
 .paragraph {
     margin-bottom: 10px;
 }
+.add_to_cart_button {
+    display: none !important;
+}
