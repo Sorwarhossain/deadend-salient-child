@@ -222,3 +222,35 @@ h1.product_title.entry-title {
 .add_to_cart_button {
     display: none !important;
 }
+.become_dealder_intro h2{
+    font-size: 26px !important;
+    line-height: 38px !important;
+}
+.become_dealder_intro {
+    padding: 0 !important;
+}
+
+/*Homepage Hero Section Styles*/
+@media only screen and (max-width: 1000px){
+    .home_banner h1 {
+        font-size: 40px !important;
+        line-height: 45px;
+    }
+}
+@media only screen and (max-width: 690px){
+    .home_banner h1 {
+        font-size: 35px !important;
+        line-height: 40px;
+    }
+    a.nectar-button {
+        font-size: 14px !important;
+        line-height: 12px !important;
+    }
+    .become_dealder_intro h2 {
+        font-size: 20px !important;
+        line-height: 30px !important;
+    }
+    h2.gsection_title {
+        font-size: 22px !important;
+    }
+}
