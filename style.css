@@ -236,6 +236,15 @@ h1.product_title.entry-title {
         font-size: 40px !important;
         line-height: 45px;
     }
+    #header-secondary-outer nav ul.sf-menu {
+        border: none !important;
+    }
+    #header-secondary-outer nav > ul#social > li:last-child {
+        border-right: none !important;
+    }
+    #header-secondary-outer nav > ul#social > li:last-child{
+        border-right: 1px solid #222 !important;
+    }
 }
 @media only screen and (max-width: 690px){
     .home_banner h1 {

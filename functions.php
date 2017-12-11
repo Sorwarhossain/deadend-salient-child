@@ -15,7 +15,65 @@ function salient_child_enqueue_styles() {
 
 
 
-add_filter( 'woocommerce_product_single_add_to_cart_text', 'woo_custom_cart_button_text' );    // 2.1 +
+// set all wc products to external 
+add_action('init', 'wc_product_set_to_external');
+function wc_product_set_to_external(){
+	$all_products = get_posts(
+		array(
+			'post_type' => 'product',
+			'post_status' => 'publish',
+			'fields'	=> 'ids',
+			'posts_per_page' => -1,
+		)
+	);
+
+	$on_site_products = get_posts(
+		array(
+			'post_type' => 'product',
+			'post_status' => 'publish',
+			'fields'	=> 'ids',
+			'posts_per_page' => -1,
+			'product_cat' => 'on-site-products',
+		)
+	);
+
+	$external_products = array_diff($all_products, $on_site_products);
+
+	foreach ($external_products as $id ) {
+		wp_set_object_terms($id, 'external', 'product_type');
+	}	
+
+	foreach ($on_site_products as $id ) {
+		wp_set_object_terms($id, 'simple', 'product_type');
+	}
+}
+
+// handle external products text and link 
+add_filter( 'woocommerce_product_single_add_to_cart_text', 'change_external_product_btn_text', 10, 2 );
+
+add_filter( 'woocommerce_product_add_to_cart_url',
+'change_external_products_link', 10, 2 );
+
+function change_external_product_btn_text( $button_text, $product ) {
+    if ( 'external' === $product->get_type() ) {
+        // enter the default text for external products
+       	$button_text = $product->button_text ? $product->button_text : 'Find Store Location';
+    }
+    return $button_text;
+}
+
+function change_external_products_link(  $url, $product ) {
+    if ( 'external' === $product->get_type() ) {
+        $url = get_permalink( '6412' ); // 6412 is the store locator page ID
+    }
+    return $url;
+}
+
+
+
+
+
+// add_filter( 'woocommerce_product_single_add_to_cart_text', 'woo_custom_cart_button_text' );    // 2.1 +
  
 function woo_custom_cart_button_text($text) {
 	global $product;
@@ -36,8 +94,6 @@ function woo_custom_cart_button_text($text) {
 
 
 
-
-
 /**
  * Redirect users after add to cart.
  */
@@ -54,7 +110,7 @@ function my_custom_add_to_cart_redirect( $url ) {
 	}
 	
 }
-add_filter( 'woocommerce_add_to_cart_redirect', 'my_custom_add_to_cart_redirect' );
+// add_filter( 'woocommerce_add_to_cart_redirect', 'my_custom_add_to_cart_redirect' );
 
 
 
@@ -92,5 +148,8 @@ function deadend_custom_login_page() {
     </style>';
 }
 add_action('login_head', 'deadend_custom_login_page');
+
+
+
 
 
