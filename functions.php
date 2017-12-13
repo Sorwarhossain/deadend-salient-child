@@ -1,9 +1,4 @@
 <?php 
-function deadend_child_setup() {
-	add_theme_support( 'wc-product-gallery-slider' );
-	add_theme_support( 'wc-product-gallery-zoom' );
-}
-add_action( 'after_setup_theme', 'deadend_child_setup' );
 
 add_action( 'wp_enqueue_scripts', 'salient_child_enqueue_styles');
 function salient_child_enqueue_styles() {
